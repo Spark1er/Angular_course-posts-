@@ -12,6 +12,10 @@ import { NotFoundComponent } from "./not-found/not-found.component";
 import { HomeComponent } from "./home/home.component";
 import { RouterModule } from "@angular/router";
 import { GithubFollowersComponent } from "./github-followers/github-followers.component";
+import { LoginComponent } from "./login/login.component";
+import { AdminComponent } from "./admin/admin.component";
+import { NoAccessComponent } from "./no-access/no-access.component";
+import { AuthService } from "./auth.service";
 
 @NgModule({
   declarations: [
@@ -21,7 +25,10 @@ import { GithubFollowersComponent } from "./github-followers/github-followers.co
     GithubProfileComponent,
     NotFoundComponent,
     HomeComponent,
-    GithubFollowersComponent
+    GithubFollowersComponent,
+    LoginComponent,
+    AdminComponent,
+    NoAccessComponent
   ],
   imports: [
     BrowserModule,
@@ -31,10 +38,13 @@ import { GithubFollowersComponent } from "./github-followers/github-followers.co
       { path: "follower/:username", component: GithubProfileComponent },
       { path: "followers", component: GithubFollowersComponent },
       { path: "posts", component: PostsComponent },
+      { path: "login", component: LoginComponent },
+      { path: "admin", component: AdminComponent },
+      { path: "no-access", component: NoAccessComponent },
       { path: "**", component: NotFoundComponent }
     ])
   ],
-  providers: [PostService, DataService],
+  providers: [PostService, DataService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
