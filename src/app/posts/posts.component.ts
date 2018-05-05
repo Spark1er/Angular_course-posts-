@@ -1,11 +1,13 @@
 import { Component, OnInit } from "@angular/core";
 import { PostService } from "../services/post.service";
 import { Response } from "@angular/http/src/static_response";
+import { fade } from "../animations";
 
 @Component({
   selector: "app-posts",
   templateUrl: "./posts.component.html",
-  styleUrls: ["./posts.component.css"]
+  styleUrls: ["./posts.component.css"],
+  animations: [fade]
 })
 export class PostsComponent implements OnInit {
   posts: any[];

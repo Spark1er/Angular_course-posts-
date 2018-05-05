@@ -2,6 +2,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { Http, HttpModule } from "@angular/http";
 
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppComponent } from "./app.component";
 import { PostsComponent } from "./posts/posts.component";
 import { PostService } from "./services/post.service";
@@ -33,6 +34,7 @@ import { AuthService } from "./auth.service";
   imports: [
     BrowserModule,
     HttpModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot([
       { path: "", component: HomeComponent },
       { path: "follower/:username", component: GithubProfileComponent },
