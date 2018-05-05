@@ -1,13 +1,37 @@
 import { Component, OnInit } from "@angular/core";
 import { PostService } from "../services/post.service";
 import { Response } from "@angular/http/src/static_response";
-import { fade } from "../animations";
+import { fade, bounceOutLeftAnimation } from "../animations";
+import {
+  animate,
+  transition,
+  trigger,
+  state,
+  style,
+  keyframes,
+  useAnimation,
+  query
+} from "@angular/animations";
 
 @Component({
   selector: "app-posts",
   templateUrl: "./posts.component.html",
   styleUrls: ["./posts.component.css"],
-  animations: [fade]
+  animations: [
+    trigger("postsAnimation1", [
+      transition(":enter", [
+        query("h1", [style({ transform: "translateY(-10px)" }), animate(500)])
+      ])
+    ]),
+    trigger("postsAnimation", [
+      transition(":enter", [style({ opacity: 0 }), animate(500)]),
+      transition(":leave", [
+        style({ backgroundColor: "#E70018" }),
+        animate(1000),
+        useAnimation(bounceOutLeftAnimation)
+      ])
+    ])
+  ]
 })
 export class PostsComponent implements OnInit {
   posts: any[];

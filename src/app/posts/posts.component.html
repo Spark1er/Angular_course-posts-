@@ -1,17 +1,17 @@
 <app-navbar></app-navbar>
-<div class="container">
+<div @postsAnimation1 class="container">
+  <h1>Top Des Posts</h1>
   <input (keyup.enter)="createPost(title)" #title type="text" class="form-control" placeholder="Add new post">
   <ul class="list-group">
-    <li 
-    @fade
-    *ngFor="let post of posts" class="list-group-item">
-      <button (click)="updatePost(post)" class="btn btn-default btn-sm">
+    <li @postsAnimation *ngFor="let post of posts" class="list-group-item">
+
+      {{post.title}}
+      <button (click)="updatePost(post)" class="btn btn-warning btn-sm">
         Update
       </button>
-      <button (click)="deletePost(post)" class="btn btn-default btn-sm">
+      <button (click)="deletePost(post)" class="btn btn-danger btn-sm">
         Delete
       </button>
-      {{post.title}}
     </li>
   </ul>
 </div>
